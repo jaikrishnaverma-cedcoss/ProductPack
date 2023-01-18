@@ -1,0 +1,73 @@
+:root {
+    --color1: #012970;
+}
+
+.navbar-toggler:focus {
+    text-decoration: none;
+    outline: 0;
+    box-shadow: 0 0 0 0;
+}
+
+.n-blue {
+    color: var(--color1);
+}
+
+.nav-right-div {
+    padding: 0 2%;
+    min-width: 30%;
+}
+
+.nav-right-div i {
+    font-size: 22px;
+    margin: 0 8%;
+    position: relative;
+}
+
+.nav-right-div i p {
+    position: absolute;
+    top: -7%;
+    margin: 0px;
+    font-size: 12px;
+    right: -25%;
+    border-radius: 7px;
+    color: white;
+    padding: 0px 6px;
+    font-weight: 500;
+}
+
+.navbar-nav .dropdown-menu {
+    position: absolute;
+}
+
+.dropdown-menu.show {
+    top: 100%;
+    left: -50% !important;
+}
+
+.profilePic{
+    width: 35px;
+    height: 35px;
+    margin: 0 5%;
+    border-radius: 50%;
+}
+
+
+
+
+@media only screen and (max-width: 600px) {
+.nav-right-div{
+    margin-left: 0px;
+    min-width: 142px;
+}
+
+.bi-list{
+    font-size: 29px !important;
+}
+.dropdown-menu.show {
+    top: 100%;
+    left: -250% !important;
+}
+.mainBody{
+    position: absolute !important;
+}
+}
