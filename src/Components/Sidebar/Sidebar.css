@@ -1,40 +1,44 @@
-:root{
+:root {
     --color: rgb(57, 77, 253);
 }
 
-.sideElements{
+.sideElements {
     width: 100%;
-    padding:0% 2% !important;
+    padding: 0% 2% !important;
 }
-.accordion-button:focus,.accordion-button.active{
+
+.accordion-button:focus,
+.accordion-button.active {
     z-index: 3;
     border-color: none;
     outline: 0;
-    box-shadow:none;
+    box-shadow: none;
     background-color: aliceblue;
     border-radius: 5px;
 }
 
-.accordion-button:hover{
+.accordion-button:hover {
     background-color: aliceblue;
-    color:  var(--color) !important;
+    color: var(--color) !important;
 }
-.without::after{
+
+.without::after {
     width: 0px !important;
 }
-.accordion-button{
+
+.accordion-button {
     color: #012970;
     font-size: 15px;
     font-weight: 500;
 }
 
-.list-group-item{
-font-size:15px;
-font-weight: 500;
+.list-group-item {
+    font-size: 15px;
+    font-weight: 500;
 }
 
-.list-group-item:hover{
- color: var(--color) !important;
+.list-group-item:hover {
+    color: var(--color) !important;
 }
 
 .accordion-button:not(.collapsed) {

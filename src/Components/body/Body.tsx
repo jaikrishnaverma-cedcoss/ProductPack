@@ -1,21 +1,47 @@
 import React, { useEffect, useState } from 'react'
 import { Route, Routes, useLocation } from 'react-router-dom'
+import Footer from '../Footer/Footer'
+import { MyState } from '../MyTypescript'
 import { SideBar } from '../Sidebar/SideBar'
 import AddProduct from './Pages/AddProduct'
 import ListProducts from './Pages/ListProducts'
 
+const initialState={
+  products:[{Name: '6565 | 65656', Description: '656', Price: '565', Tags: '65656', Stocks: '565'}],
+  placeOrder:[{Customer_Name: '4564654', Customer_Address: '64564565466', Zip: '546543', Product: '6565 | 65656', Quantity: '5465'}],
+  settings:{Default_Price: '1000', Default_Stocks: '400', Default_zip_code: '1233', Default_Title: 'true'}
+ }
+
 const Body = () => {
   const location = useLocation();
-  const [state,setState]=useState({
-   products:[],
-   placeOrder:[],
-   settings:[]
-  })
-
+ const [state,setState]=useState<MyState>(initialState)
+  const forms=[
+    [
+      { name: 'Name', type: 'text',required:true },
+      { name: 'Description', type: 'textarea' ,required:true},
+      { name: 'Price', type: 'number' },
+      { name: 'Tags', type: 'text' ,required:true},
+      { name: 'Stocks', type: 'text' },
+    ],
+    [
+      { name: 'Customer_Name', type: 'text',required:true },
+      { name: 'Customer_Address', type: 'textarea' ,required:true},
+      { name: 'Zip', type: 'number' ,required:false},
+      { name: 'Product', type: 'select', data:state.products ,required:true},
+      { name: 'Quantity', type: 'number' ,required:true},
+    ],
+    [
+      { name: 'Default_Title', type: 'radio' ,span:'With Tags (on) & without Tags (off)' ,required:true},
+      { name: 'Default_Price', type: 'number' ,required:true},
+      { name: 'Default_Stocks', type: 'number' ,required:true},
+      { name: 'Default_zip_code', type: 'number' ,required:true},
+    ]
+  ]
       // if local storage exist then no need to fetch api
       useEffect(() => {
         if (localStorage.getItem("Prd")!=null){
-          let x:any=localStorage.getItem("Prd")
+          let x:string|null=localStorage.getItem("Prd")
+        if(x!=null)
         setState({...JSON.parse(x)})
       }
     }, [])
@@ -24,31 +50,11 @@ const Body = () => {
     useEffect(() => {
         setTimeout(() => {
             localStorage.setItem("Prd", JSON.stringify(state));
-        }, 300)
+        }, 3)
     }, [state])
-  const forms=[
-    [
-      { name: 'Name', type: 'text' },
-      { name: 'Description', type: 'textarea' },
-      { name: 'Price', type: 'number' },
-      { name: 'Tags', type: 'text' },
-      { name: 'Stocks', type: 'text' },
-    ],
-    [
-      { name: 'Customer Name', type: 'text' },
-      { name: 'Customer Address', type: 'textarea' },
-      { name: 'Zip', type: 'number' },
-      { name: 'Product', type: 'select', data:state.products },
-      { name: 'Quantity', type: 'number' },
-    ],
-    [
-      { name: 'Title', type: 'radio' },
-      { name: 'Default Price', type: 'number' },
-      { name: 'Default Stocks', type: 'number' },
-      { name: 'Default Tags', type: 'text' },
-    ]
-  ]
-  console.log(state)
+  
+  // console.log('state => ',state)
+
   return (
     <>
     <div className='d-flex '>
@@ -58,14 +64,16 @@ const Body = () => {
         <p className="fs-6" style={{color: '#51678f'}}>Home {(location.pathname=='/')?'/ Add Product':location.pathname.replace('_',' ').replace("/", " / ")}</p>
        <Routes>
        <Route path='/' element={<AddProduct   inputs = {forms[0]} state={state} objKey='products'  setState={setState}/>} />
-       <Route path='/List_Products' element={<ListProducts   table = {state.products} state={state} setState={setState}/>} />
+       <Route path='/List_Products' element={<ListProducts   table = {state.products} state={state} objKey='products' setState={setState}/>} />
        <Route path='/Place_Order' element={<AddProduct   inputs = {forms[1]} state={state} objKey='placeOrder' setState={setState}/>} />
-       <Route path='/List_Order' element={<ListProducts   table = {state.placeOrder} state={state} setState={setState}/>} />
+       <Route path='/List_Order' element={<ListProducts   table = {state.placeOrder} state={state} objKey='placeOrder' setState={setState}/>} />
        <Route path='/Add_Setting' element={<AddProduct   inputs = {forms[2]} state={state} objKey='settings' setState={setState}/>} />
-       <Route path='/List_Setting' element={<ListProducts   table = {state.settings} state={state} setState={setState}/>} />
+       <Route path='/List_Setting' element={<ListProducts   table = {state.settings} state={state} objKey='settings' setState={setState}/>} />
       </Routes>
        </div>
+      
        </div>
+       <Footer/>
     </>
 
   )

@@ -1,12 +1,11 @@
 import { Sidebar } from 'react-pro-sidebar';
 import { useNavigate } from 'react-router-dom';
-import { database } from './database';
+import { database } from './sidebar_details';
 import './Sidebar.css'
 export function SideBar() {
 const navigate=useNavigate()
 
   return (
-    
       <Sidebar collapsedWidth='0px'  width='300px' backgroundColor='white'>
       <div className="sideElements ">
       <div className="accordion accordion-flush px-2 py-1 borderd" id="accordionFlushExample">
