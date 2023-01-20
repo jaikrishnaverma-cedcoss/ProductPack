@@ -4,6 +4,7 @@ import Footer from '../Footer/Footer'
 import { MyState } from '../MyTypescript'
 import { SideBar } from '../Sidebar/SideBar'
 import AddProduct from './Pages/AddProduct'
+import Dashboard from './Pages/Dashboard'
 import ListProducts from './Pages/ListProducts'
 
 const initialState={
@@ -60,10 +61,11 @@ const Body = () => {
     <div className='d-flex '>
        <SideBar />
        <div className="mainBody py-3 px-4 " style={{backgroundColor:'aliceblue',width:'100%'}}>
-        <p className="fs-4 m-0 n-blue">{(location.pathname=='/')?'Add Product':location.pathname.replace('_',' ').slice(1)}</p>
-        <p className="fs-6" style={{color: '#51678f'}}>Home {(location.pathname=='/')?'/ Add Product':location.pathname.replace('_',' ').replace("/", " / ")}</p>
+        <p className="fs-4 m-0 n-blue">{(location.pathname=='/')?'Dashboard':location.pathname.replace('_',' ').slice(1)}</p>
+        <p className="fs-6" style={{color: '#51678f'}}>Home {(location.pathname=='/')?'/ Dashboard':location.pathname.replace('_',' ').replace("/", " / ")}</p>
        <Routes>
-       <Route path='/' element={<AddProduct   inputs = {forms[0]} state={state} objKey='products'  setState={setState}/>} />
+       <Route path='/' element={<Dashboard/>} />
+       <Route path='/Add_Product' element={<AddProduct   inputs = {forms[0]} state={state} objKey='products'  setState={setState}/>} />
        <Route path='/List_Products' element={<ListProducts   table = {state.products} state={state} objKey='products' setState={setState}/>} />
        <Route path='/Place_Order' element={<AddProduct   inputs = {forms[1]} state={state} objKey='placeOrder' setState={setState}/>} />
        <Route path='/List_Order' element={<ListProducts   table = {state.placeOrder} state={state} objKey='placeOrder' setState={setState}/>} />
