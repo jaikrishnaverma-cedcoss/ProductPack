@@ -60,9 +60,9 @@ const Dashboard = () => {
                 <div className="col-4 text-white">
                   <button
                     className="fs-2 mainIcon rounded-circle"
-                    style={{ color: "#4154f1", backgroundColor: "#f6f6fe" }}
+                    style={{ color: "rgb(64 193 89)", backgroundColor: "rgb(227 255 236)" }}
                   >
-                    <i className="bi bi-cart"></i>
+                  <i className="bi bi-currency-dollar"></i>
                   </button>
                 </div>
                 <div className="col-8">
@@ -97,16 +97,16 @@ const Dashboard = () => {
                 <div className="p-1 me-5 text-white">
                   <button
                     className="fs-2 mainIcon rounded-circle"
-                    style={{ color: "#4154f1", backgroundColor: "#f6f6fe" }}
+                    style={{ color: "rgb(241 134 65)", backgroundColor: "rgb(255 235 209)" }}
                   >
-                    <i className="bi bi-cart"></i>
+                  <i className ="bi bi-people"></i>
                   </button>
                 </div>
                 <div className=" ps-1">
                   <h2 className="n-blue">1244</h2>
                   <span className="text-secondary">
                     <span
-                      className="me-2 text-success"
+                      className="me-2 text-danger"
                       style={{ fontWeight: "500" }}
                     >
                       12%{" "}
@@ -338,7 +338,7 @@ const Dashboard = () => {
           <div className="card-title p-3 mb-2">
             <div className="d-flex justify-content-between">
               <p className="card-title fs-5 n-blue">
-                 News & Updates
+                News & Updates
                 <small className="text-secondary mx-1 fs-6">| Today</small>{" "}
               </p>
               <small className="text-secondary mx-1 fs-6">...</small>
@@ -346,24 +346,30 @@ const Dashboard = () => {
 
             <div className="d-flex justify-content-center">
               <div className="list-group w-100">
-               {
-              product.map(x=> <a href="#" className="p-0 mb-3 border-0 list-group-item list-group-item-action d-flex justify-content-between" aria-current="true" >
+                {product.map((x) => (
+                  <a
+                    href="#"
+                    className="p-0 mb-3 border-0 list-group-item list-group-item-action d-flex justify-content-between"
+                    aria-current="true"
+                  >
+                    <div className="col-3">
+                      <img
+                        className=" rounded"
+                        style={{ width: "80px", height: "100%" }}
+                        src={x.img}
+                      ></img>
+                    </div>
 
-          <div className="col-3">
-          <img className=" rounded" style={{width:'80px',height:'100%'}} src={x.img}></img>
-          </div>
-     
-              <div className="col-8">
-              <div className="d-flex w-100 justify-content-between">
-               </div>
-               <p className="mb-1 n-blue">
-                 Some placeholder.
-               </p>
-               <small className="text-secondary fw-normal">Sit recusandae non aspernatur laboriosam. Quia sed ut harum...</small>
-              </div>
-             </a>)
-               }
-               
+                    <div className="col-8">
+                      <div className="d-flex w-100 justify-content-between"></div>
+                      <p className="mb-1 n-blue">Some placeholder.</p>
+                      <small className="text-secondary fw-normal">
+                        Sit recusandae non aspernatur laboriosam. Quia sed ut
+                        harum...
+                      </small>
+                    </div>
+                  </a>
+                ))}
               </div>
             </div>
           </div>
