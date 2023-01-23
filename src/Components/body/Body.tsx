@@ -60,7 +60,7 @@ const Body = () => {
     <>
     <div className='d-flex '>
        <SideBar />
-       <div className="mainBody py-3 px-4 " style={{backgroundColor:'aliceblue',width:'100%'}}>
+       <div className="mainBody py-3 px-4 " style={{backgroundColor:'aliceblue',width:'100%',height:'100vh',overflowY:'scroll'}}>
         <p className="fs-4 m-0 n-blue">{(location.pathname=='/')?'Dashboard':location.pathname.replace('_',' ').slice(1)}</p>
         <p className="fs-6" style={{color: '#51678f'}}>Home {(location.pathname=='/')?'/ Dashboard':location.pathname.replace('_',' ').replace("/", " / ")}</p>
        <Routes>
@@ -72,10 +72,11 @@ const Body = () => {
        <Route path='/Add_Setting' element={<AddProduct   inputs = {forms[2]} state={state} objKey='settings' setState={setState}/>} />
        <Route path='/List_Setting' element={<ListProducts   table = {state.settings} state={state} objKey='settings' setState={setState}/>} />
       </Routes>
+      <Footer/>
        </div>
-      
+    
        </div>
-       <Footer/>
+   
     </>
 
   )

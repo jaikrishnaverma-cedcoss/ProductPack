@@ -2,18 +2,19 @@ import { Sidebar } from 'react-pro-sidebar';
 import { useNavigate } from 'react-router-dom';
 import { database } from './sidebar_details';
 import './Sidebar.css'
+import useMediaQuery from '../Hooks/useMediaQuery';
 export function SideBar() {
 const navigate=useNavigate()
-
+const isMobile = useMediaQuery('(min-width: 600px)');
   return (
-      <Sidebar collapsedWidth='0px'  width='300px' backgroundColor='white'>
-      <div className="sideElements ">
-      <div className="accordion accordion-flush px-2 py-1 borderd" id="accordionFlushExample">
+      <Sidebar defaultCollapsed={(!isMobile)?true:false} collapsedWidth='0px'  width='300px' backgroundColor='white'>
+      <div className="sideElements "  >
+      <div className="accordion accordion-flush px-2 py-1 borderd" id="accordionFlushExample" >
               <div className="accordion-item">
                 <h2 className="accordion-header" id="flush-headingOne">
                   <button onClick={()=>navigate('/')} className="accordion-button active without collapsed" type="button" data-bs-toggle="collapse" aria-expanded="false" aria-controls="flush-collapseOne">
                     <i className={`text-secondary bi bi-grid`}></i>
-                    <span className='ms-3'>Add Product</span>
+                    <span className='ms-3'>Dashboard</span>
                   </button>
                 </h2>
               </div>

@@ -62,6 +62,44 @@
     border: none;
 }
 
+.mine-li small{
+font-weight: 500;
+font-size: 15px;
+color: rgb(100, 100, 100);
+}
+.mine-li div{
+    background-color: rgb(219, 219, 219) ;
+}
+
+/* table--Css */
+#exampleTable_filter{
+    display: flex;
+    justify-content: end;
+}
+#exampleTable_filter label{
+    display: flex;
+}
+#exampleTable_filter label input{
+    margin: 0 10px;
+}
+.dataTables_length label{
+    display: flex;
+}
+.dataTables_length label select{
+    max-width: 18%;
+    margin:0 10px ;
+}
+ul.pagination{
+    display:flex;
+    justify-content:end;
+}
+table *,td,th,td span,.dataTables_info,ul.pagination li a{
+    font-size: 14px !important;
+}
+td span{
+    font-size: 11px !important;
+}
+/* Table--css */
 @media only screen and (max-width: 600px) {
 .nav-right-div{
     margin-left: 0px;
@@ -78,4 +116,24 @@
 .mainBody{
     position: absolute !important;
 }
+table *,td,th,td span,.dataTables_info,ul.pagination li a{
+    font-size: 10px !important;
 }
+td span{
+    font-size: 8px !important;
+}
+}
+::-webkit-scrollbar {
+    width: 1px;
+  }
+::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+::-webkit-scrollbar-thumb {
+    background-color: transparent;
+  }
+  aside{
+    height: 100vh;
+    overflow-y: scroll;
+  }

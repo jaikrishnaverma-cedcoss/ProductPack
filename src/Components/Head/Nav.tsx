@@ -6,7 +6,7 @@ type typer={
 const Nav = () => {
   const { collapseSidebar }:typer = useProSidebar();
   return (
-    <nav className="navbar navbar-expand-lg sticky-top navbar-light bg-white">
+    <nav className="navbar navbar-expand-lg sticky-top navbar-light bg-white" >
       <div className="container-fluid">
         <a className="navbar-brand me-0 me-sm-2 me-lg-5" href="#">
           <img src="https://bootstrapmade.com/demo/templates/NiceAdmin/assets/img/logo.png" alt="logo" className='col-6 col-lg-2' />
